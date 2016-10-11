@@ -10,13 +10,18 @@ eval cyan='$FG[037]'
 eval white='$FG[231]'
 eval grey='$FG[145]'
 
+### NVM
+
+ZSH_THEME_NVM_PROMPT_PREFIX="%B⬡ Node:%b "
+ZSH_THEME_NVM_PROMPT_SUFFIX=""
+
 PROMPT='$(_user_host)${_current_dir}$(git_prompt_info)
 %{$white%}>%{$reset_color%} '
 
 PROMPT2='%{$grey%}◀%{$reset_color%} '
 
 #RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(git_prompt_short_sha) $(_git_time_since_commit) ${_return_status} %T% %{$(echotc DO 1)%}'
-RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(git_prompt_short_sha) ${_return_status} %{$white%}%T%{$(echotc DO 1)%}%{$reset_color%}'
+RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(nvm_prompt_info) $(git_prompt_short_sha) ${_return_status} %{$white%}%T%{$(echotc DO 1)%}%{$reset_color%}'
 
 local _current_dir="%{$green%}%0~%{$reset_color%} "
 local _return_status="%{$red%}%(?..×)%{$reset_color%}"
